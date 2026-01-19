@@ -25,6 +25,8 @@ Pre-rendered PNG exports: [`logo/exports/png/`](logo/exports/png/) (512, 256, 12
 
 Favicon files: [`logo/exports/favicon/`](logo/exports/favicon/) (ico, 32px, 16px)
 
+Open Graph image: [`logo/exports/og-images/og-default.png`](logo/exports/og-images/og-default.png) (1200×630px for social sharing)
+
 ## Colors
 
 ### Primary Palette
@@ -74,9 +76,12 @@ brand/
 │   ├── bitcraft-logo-single-color.svg
 │   ├── bitcraft-logo-mono-white.svg
 │   ├── bitcraft-logo-mono-black.svg
+│   ├── og-images/
+│   │   └── og-default.svg
 │   └── exports/
 │       ├── png/
-│       └── favicon/
+│       ├── favicon/
+│       └── og-images/
 ├── colors/
 │   └── palette.md
 ├── typography/
