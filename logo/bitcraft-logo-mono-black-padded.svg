@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="112 96 264 280" width="264" height="280">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="84 68 320 336" width="320" height="336">
   <!--
-    Bitcraft Logo - Monochrome Black (for light backgrounds)
+    Bitcraft Logo - Monochrome Black (for light backgrounds) - Padded
     https://github.com/bitcraft-apps/brand
+    10% clear space padding for contexts requiring breathing room
   -->
   <rect x="112" y="96" width="184" height="48" rx="24" fill="#1a1a1a"/>
   <rect x="160" y="156" width="176" height="48" rx="24" fill="#444444"/>
