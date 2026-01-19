@@ -12,9 +12,6 @@ const svgFiles = [
   'bitcraft-lockup-horizontal.svg',
   'bitcraft-lockup-horizontal-white.svg',
   'bitcraft-lockup-horizontal-black.svg',
-  'bitcraft-lockup-vertical.svg',
-  'bitcraft-lockup-vertical-white.svg',
-  'bitcraft-lockup-vertical-black.svg',
 ];
 
 // Export sizes (height in pixels)

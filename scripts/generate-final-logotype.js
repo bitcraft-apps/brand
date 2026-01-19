@@ -105,42 +105,6 @@ colors.forEach(color => {
   console.log(`Created: ${filename}`);
 });
 
-// Generate vertical lockup SVGs (logomark stacked above text)
-const verticalGap = 16;
-const verticalTotalHeight = logomarkHeight + verticalGap + Math.ceil(textVisibleHeight);
-const verticalTotalWidth = Math.max(logomarkWidth + 8.2, Math.ceil(itcraftBounds.maxX));
-const logomarkCenterX = (verticalTotalWidth - logomarkWidth) / 2;
-const textCenterX = (verticalTotalWidth - itcraftBounds.maxX) / 2;
-
-// For vertical layout, position text below logomark, accounting for text's top offset
-const verticalTextY = logomarkHeight + verticalGap - itcraftBounds.minY;
-
-console.log('Vertical lockup dimensions:', verticalTotalWidth, 'x', verticalTotalHeight);
-
-colors.forEach(color => {
-  const svg = `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${Math.ceil(verticalTotalWidth)} ${Math.ceil(verticalTotalHeight)}" width="${Math.ceil(verticalTotalWidth)}" height="${Math.ceil(verticalTotalHeight)}">
-  <!--
-    Bitcraft Lockup Vertical - ${color.desc}
-    https://github.com/bitcraft-apps/brand
-    Logomark stacked above "itcraft" in Poppins SemiBold
-  -->
-  <g fill="${color.fill}">
-    <!-- Logomark (B) -->
-    <g transform="translate(${logomarkCenterX}, 0)">${logomarkPaths}
-    </g>
-    <!-- itcraft text -->
-    <g transform="translate(${textCenterX}, ${verticalTextY})">
-      <path d="${itcraftPath}"/>
-    </g>
-  </g>
-</svg>`;
-
-  const filename = `bitcraft-lockup-vertical${color.name}.svg`;
-  fs.writeFileSync(path.join(outputDir, filename), svg);
-  console.log(`Created: ${filename}`);
-});
-
 // Generate logotype-only SVGs (full "Bitcraft" wordmark)
 const fullPath = textToSVG.getD('Bitcraft', options);
 const fullBounds = getPathBounds(fullPath);
@@ -176,5 +140,4 @@ colors.forEach(color => {
 console.log('\n✓ All SVG files generated successfully!');
 console.log(`\nFiles created in: ${outputDir}`);
 console.log('\nHorizontal lockup: logomark "B" + "itcraft"');
-console.log('Vertical lockup: logomark stacked above "itcraft"');
 console.log('Logotype: full "Bitcraft" wordmark');
