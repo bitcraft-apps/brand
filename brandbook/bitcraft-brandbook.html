@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bitcraft Brand Book — Green Compact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --color-primary: #556B2F;
+      --color-secondary: #6B8E23;
+      --color-accent: #228B22;
+      --color-dark: #1a1a1a;
+      --color-light: #f5f5f5;
+      --color-white: #ffffff;
+      --color-text: #333333;
+      --color-muted: #666666;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--color-light);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+    
+    /* Cover */
+    .cover {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--color-dark) 0%, #2a2a2a 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      text-align: center;
+    }
+    
+    .cover-logo {
+      width: 200px;
+      height: 200px;
+      margin-bottom: 48px;
+    }
+    
+    .cover h1 {
+      font-size: 3.5rem;
+      font-weight: 600;
+      color: var(--color-white);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    
+    .cover .tagline {
+      font-size: 1.25rem;
+      color: var(--color-secondary);
+      margin-bottom: 48px;
+    }
+    
+    .cover .variant-badge {
+      background: rgba(107, 142, 35, 0.2);
+      border: 1px solid var(--color-secondary);
+      color: var(--color-secondary);
+      padding: 8px 24px;
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    /* Sections */
+    .section {
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-dark {
+      background: var(--color-dark);
+      color: var(--color-white);
+      max-width: 100%;
+      padding-left: calc((100% - 1200px) / 2 + 40px);
+      padding-right: calc((100% - 1200px) / 2 + 40px);
+    }
+    
+    .section-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-secondary);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    
+    .section-heading {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 40px;
+      color: inherit;
+    }
+    
+    .section-dark .section-heading {
+      color: var(--color-white);
+    }
+    
+    /* Logo Display */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    
+    .logo-card {
+      border-radius: 16px;
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 280px;
+    }
+    
+    .logo-card.dark {
+      background: var(--color-dark);
+    }
+    
+    .logo-card.light {
+      background: var(--color-white);
+      border: 1px solid #e0e0e0;
+    }
+    
+    .logo-card svg {
+      width: 140px;
+      height: 140px;
+      margin-bottom: 16px;
+    }
+    
+    .logo-card-label {
+      font-size: 0.75rem;
+      color: var(--color-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    .logo-card.dark .logo-card-label {
+      color: #888;
+    }
+    
+    /* Color Palette */
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    
+    .color-card {
+      background: var(--color-white);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e0e0e0;
+    }
+    
+    .color-swatch {
+      height: 120px;
+    }
+    
+    .color-info {
+      padding: 16px;
+    }
+    
+    .color-name {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    
+    .color-values {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--color-muted);
+    }
+    
+    /* App Icons */
+    .icons-grid {
+      display: flex;
+      gap: 32px;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    
+    .icon-item {
+      text-align: center;
+    }
+    
+    .icon-preview {
+      border-radius: 22%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    .icon-preview svg {
+      width: 60%;
+      height: 60%;
+    }
+    
+    .icon-label {
+      font-size: 0.6875rem;
+      color: var(--color-muted);
+    }
+    
+    /* Favicon Sizes */
+    .favicon-row {
+      display: flex;
+      gap: 24px;
+      align-items: flex-end;
+      padding: 32px;
+      background: var(--color-dark);
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+    
+    .favicon-item {
+      text-align: center;
+    }
+    
+    .favicon-item svg {
+      display: block;
+      margin-bottom: 8px;
+    }
+    
+    .favicon-item span {
+      font-size: 0.625rem;
+      color: #888;
+    }
+    
+    /* Typography */
+    .type-specimen {
+      background: var(--color-white);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 24px;
+      border: 1px solid #e0e0e0;
+    }
+    
+    .type-name {
+      font-size: 0.75rem;
+      color: var(--color-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+    
+    .type-sample {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    .type-sample.mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    
+    .type-details {
+      font-size: 0.875rem;
+      color: var(--color-muted);
+    }
+    
+    /* Business Card */
+    .card-mockup {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    
+    .business-card {
+      aspect-ratio: 1.75;
+      border-radius: 8px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    
+    .business-card.front {
+      background: var(--color-dark);
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .business-card.front svg {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 16px;
+    }
+    
+    .business-card.front .company-name {
+      color: var(--color-white);
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    
+    .business-card.back {
+      background: var(--color-white);
+      justify-content: space-between;
+    }
+    
+    .business-card.back .name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-dark);
+    }
+    
+    .business-card.back .title {
+      font-size: 0.75rem;
+      color: var(--color-secondary);
+      margin-top: 4px;
+    }
+    
+    .business-card.back .contact {
+      font-size: 0.75rem;
+      color: var(--color-muted);
+      line-height: 1.8;
+    }
+    
+    /* Email Signature */
+    .email-mockup {
+      background: var(--color-white);
+      border-radius: 12px;
+      padding: 32px;
+      border: 1px solid #e0e0e0;
+      margin-bottom: 48px;
+    }
+    
+    .email-header {
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+    }
+    
+    .email-header .to {
+      font-size: 0.875rem;
+      color: var(--color-muted);
+    }
+    
+    .email-header .subject {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    
+    .email-body {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      color: var(--color-text);
+    }
+    
+    .email-signature {
+      border-top: 2px solid var(--color-secondary);
+      padding-top: 16px;
+      display: flex;
+      gap: 16px;
+    }
+    
+    .email-signature svg {
+      width: 56px;
+      height: 56px;
+      flex-shrink: 0;
+    }
+    
+    .sig-info .sig-name {
+      font-weight: 600;
+      color: var(--color-dark);
+    }
+    
+    .sig-info .sig-title {
+      font-size: 0.8125rem;
+      color: var(--color-secondary);
+    }
+    
+    .sig-info .sig-contact {
+      font-size: 0.75rem;
+      color: var(--color-muted);
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+    
+    /* Invoice */
+    .invoice-mockup {
+      background: var(--color-white);
+      border-radius: 12px;
+      padding: 48px;
+      border: 1px solid #e0e0e0;
+      margin-bottom: 48px;
+      max-width: 700px;
+    }
+    
+    .invoice-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 48px;
+    }
+    
+    .invoice-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .invoice-logo svg {
+      width: 48px;
+      height: 48px;
+    }
+    
+    .invoice-logo .company {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--color-dark);
+    }
+    
+    .invoice-title {
+      text-align: right;
+    }
+    
+    .invoice-title h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--color-dark);
+    }
+    
+    .invoice-title .invoice-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+      color: var(--color-muted);
+    }
+    
+    .invoice-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+    
+    .invoice-meta h4 {
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-muted);
+      margin-bottom: 8px;
+    }
+    
+    .invoice-meta p {
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+    
+    .invoice-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 24px;
+    }
+    
+    .invoice-table th {
+      text-align: left;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-muted);
+      padding: 12px 0;
+      border-bottom: 2px solid var(--color-secondary);
+    }
+    
+    .invoice-table th:last-child {
+      text-align: right;
+    }
+    
+    .invoice-table td {
+      padding: 16px 0;
+      font-size: 0.875rem;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .invoice-table td:last-child {
+      text-align: right;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    
+    .invoice-total {
+      text-align: right;
+      padding-top: 16px;
+    }
+    
+    .invoice-total .label {
+      font-size: 0.875rem;
+      color: var(--color-muted);
+    }
+    
+    .invoice-total .amount {
+      font-size: 1.5rem;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--color-dark);
+    }
+    
+    .invoice-footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid #e0e0e0;
+      font-size: 0.75rem;
+      color: var(--color-muted);
+      text-align: center;
+    }
+    
+    /* Letterhead */
+    .letterhead-mockup {
+      background: var(--color-white);
+      border-radius: 12px;
+      padding: 48px;
+      border: 1px solid #e0e0e0;
+      margin-bottom: 48px;
+      max-width: 700px;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .letterhead-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 48px;
+    }
+    
+    .letterhead-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .letterhead-logo svg {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .letterhead-logo .company {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-dark);
+    }
+    
+    .letterhead-contact {
+      text-align: right;
+      font-size: 0.75rem;
+      color: var(--color-muted);
+      line-height: 1.8;
+    }
+    
+    .letterhead-body {
+      flex: 1;
+      font-size: 0.9375rem;
+      line-height: 1.8;
+      color: var(--color-text);
+    }
+    
+    .letterhead-body .date {
+      margin-bottom: 24px;
+      color: var(--color-muted);
+    }
+    
+    .letterhead-body .greeting {
+      margin-bottom: 16px;
+    }
+    
+    .letterhead-body .content {
+      margin-bottom: 24px;
+    }
+    
+    .letterhead-footer {
+      margin-top: auto;
+      padding-top: 24px;
+      border-top: 2px solid var(--color-secondary);
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.6875rem;
+      color: var(--color-muted);
+    }
+    
+    /* Social Media */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    
+    .social-card {
+      background: var(--color-white);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e0e0e0;
+    }
+    
+    .social-header {
+      height: 80px;
+      background: var(--color-dark);
+      position: relative;
+    }
+    
+    .social-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--color-dark);
+      border: 3px solid var(--color-white);
+      position: absolute;
+      bottom: -32px;
+      left: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .social-avatar svg {
+      width: 36px;
+      height: 36px;
+    }
+    
+    .social-content {
+      padding: 40px 16px 16px;
+    }
+    
+    .social-name {
+      font-weight: 600;
+      font-size: 0.9375rem;
+    }
+    
+    .social-handle {
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+    }
+    
+    .social-label {
+      text-align: center;
+      padding: 8px;
+      font-size: 0.6875rem;
+      color: var(--color-muted);
+      background: var(--color-light);
+    }
+    
+    /* Website Header */
+    .website-mockup {
+      background: var(--color-white);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e0e0e0;
+      margin-bottom: 24px;
+    }
+    
+    .browser-bar {
+      background: #f0f0f0;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .browser-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ddd;
+    }
+    
+    .browser-dot.red { background: #ff5f57; }
+    .browser-dot.yellow { background: #ffbd2e; }
+    .browser-dot.green { background: #28c840; }
+    
+    .browser-url {
+      flex: 1;
+      margin-left: 16px;
+      background: var(--color-white);
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      color: var(--color-muted);
+    }
+    
+    .website-header {
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .website-header.dark {
+      background: var(--color-dark);
+      border-bottom-color: #333;
+    }
+    
+    .website-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .website-logo svg {
+      width: 32px;
+      height: 32px;
+    }
+    
+    .website-logo span {
+      font-weight: 600;
+      font-size: 1.125rem;
+    }
+    
+    .website-header.dark .website-logo span {
+      color: var(--color-white);
+    }
+    
+    .website-nav {
+      display: flex;
+      gap: 24px;
+      font-size: 0.875rem;
+    }
+    
+    .website-nav a {
+      color: var(--color-muted);
+      text-decoration: none;
+    }
+    
+    .website-header.dark .website-nav a {
+      color: #999;
+    }
+    
+    .website-content {
+      padding: 48px 32px;
+      min-height: 200px;
+      background: var(--color-light);
+    }
+    
+    /* Guidelines */
+    .guidelines-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    
+    .guideline-card {
+      background: var(--color-white);
+      border-radius: 12px;
+      padding: 24px;
+      border: 1px solid #e0e0e0;
+    }
+    
+    .guideline-card h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--color-dark);
+    }
+    
+    .guideline-card p {
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+      line-height: 1.6;
+    }
+    
+    .guideline-card .do {
+      color: var(--color-accent);
+    }
+    
+    .guideline-card .dont {
+      color: #c0392b;
+    }
+    
+    /* Footer */
+    .brand-footer {
+      background: var(--color-dark);
+      color: var(--color-white);
+      padding: 48px 40px;
+      text-align: center;
+    }
+    
+    .brand-footer svg {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 16px;
+    }
+    
+    .brand-footer h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    .brand-footer p {
+      font-size: 0.875rem;
+      color: #888;
+    }
+    
+    @media (max-width: 768px) {
+      .logo-grid,
+      .palette-grid,
+      .card-mockup,
+      .social-grid,
+      .guidelines-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .section {
+        padding: 48px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- COVER -->
+  <div class="cover">
+    <svg class="cover-logo" viewBox="0 0 512 512">
+      <rect x="112" y="96" width="184" height="48" rx="24" fill="#556B2F"/>
+      <rect x="160" y="156" width="176" height="48" rx="24" fill="#6B8E23"/>
+      <rect x="112" y="216" width="144" height="40" rx="20" fill="#556B2F"/>
+      <rect x="160" y="268" width="216" height="48" rx="24" fill="#228B22"/>
+      <rect x="112" y="328" width="200" height="48" rx="24" fill="#556B2F"/>
+    </svg>
+    <h1>Bitcraft</h1>
+    <p class="tagline">Software Development & Custom Applications</p>
+    <span class="variant-badge">Brand Book — Compact Variant</span>
+  </div>
+
+  <!-- LOGO SECTION -->
+  <section class="section">
+    <p class="section-title">01 — Logo</p>
+    <h2 class="section-heading">Primary Logo Mark</h2>
+    
+    <div class="logo-grid">
+      <div class="logo-card dark">
+        <svg viewBox="0 0 512 512">
+          <rect x="112" y="96" width="184" height="48" rx="24" fill="#556B2F"/>
+          <rect x="160" y="156" width="176" height="48" rx="24" fill="#6B8E23"/>
+          <rect x="112" y="216" width="144" height="40" rx="20" fill="#556B2F"/>
+          <rect x="160" y="268" width="216" height="48" rx="24" fill="#228B22"/>
+          <rect x="112" y="328" width="200" height="48" rx="24" fill="#556B2F"/>
+        </svg>
+        <span class="logo-card-label">Primary — Dark Background</span>
+      </div>
+      <div class="logo-card light">
+        <svg viewBox="0 0 512 512">
+          <rect x="112" y="96" width="184" height="48" rx="24" fill="#556B2F"/>
+          <rect x="160" y="156" width="176" height="48" rx="24" fill="#6B8E23"/>
+          <rect x="112" y="216" width="144" height="40" rx="20" fill="#556B2F"/>
+          <rect x="160" y="268" width="216" height="48" rx="24" fill="#228B22"/>
+          <rect x="112" y="328" width="200" height="48" rx="24" fill="#556B2F"/>
+        </svg>
+        <span class="logo-card-label">Primary — Light Background</span>
+      </div>
+      <div class="logo-card dark">
+        <svg viewBox="0 0 512 512">
+          <rect x="112" y="96" width="184" height="48" rx="24" fill="#ffffff"/>
+          <rect x="160" y="156" width="176" height="48" rx="24" fill="#cccccc"/>
+          <rect x="112" y="216" width="144" height="40" rx="20" fill="#ffffff"/>
+          <rect x="160" y="268" width="216" height="48" rx="24" fill="#999999"/>
+          <rect x="112" y="328" width="200" height="48" rx="24" fill="#ffffff"/>
+        </svg>
+        <span class="logo-card-label">Monochrome — Dark Background</span>
+      </div>
+      <div class="logo-card light">
+        <svg viewBox="0 0 512 512">
+          <rect x="112" y="96" width="184" height="48" rx="24" fill="#1a1a1a"/>
+          <rect x="160" y="156" width="176" height="48" rx="24" fill="#444444"/>
+          <rect x="112" y="216" width="144" height="40" rx="20" fill="#1a1a1a"/>
+          <rect x="160" y="268" width="216" height="48" rx="24" fill="#666666"/>
+          <rect x="112" y="328" width="200" height="48" rx="24" fill="#1a1a1a"/>
+        </svg>
+        <span class="logo-card-label">Monochrome — Light Background</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLOR PALETTE -->
+  <section class="section section-dark">
+    <p class="section-title">02 — Color Palette</p>
+    <h2 class="section-heading">Brand Colors</h2>
+    
+    <div class="palette-grid">
+      <div class="color-card">
+        <div class="color-swatch" style="background: #556B2F;"></div>
+        <div class="color-info">
+          <p class="color-name">Dark Olive</p>
+          <p class="color-values">#556B2F • RGB(85, 107, 47)</p>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #6B8E23;"></div>
+        <div class="color-info">
+          <p class="color-name">Olive Drab</p>
+          <p class="color-values">#6B8E23 • RGB(107, 142, 35)</p>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #228B22;"></div>
+        <div class="color-info">
+          <p class="color-name">Forest Green</p>
+          <p class="color-values">#228B22 • RGB(34, 139, 34)</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="palette-grid">
+      <div class="color-card">
+        <div class="color-swatch" style="background: #1a1a1a;"></div>
+        <div class="color-info">
+          <p class="color-name">Near Black</p>
+          <p class="color-values">#1A1A1A • RGB(26, 26, 26)</p>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #f5f5f5;"></div>
+        <div class="color-info">
+          <p class="color-name">Off White</p>
+          <p class="color-values">#F5F5F5 • RGB(245, 245, 245)</p>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #ffffff; border: 1px solid #e0e0e0;"></div>
+        <div class="color-info">
+          <p class="color-name">White</p>
+          <p class="color-values">#FFFFFF • RGB(255, 255, 255)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP ICONS -->
+  <section class="section">
+    <p class="section-title">03 — App Icons</p>
+    <h2 class="section-heading">Application Icons</h2>
+    
+    <div class="icons-grid">
+      <div class="icon-item">
+        <div class="icon-preview" style="width: 180px; height: 180px; background: #1a1a1a;">
+          <svg viewBox="0 0 512 512">
+            <rect x="112" y="96" width="184" height="48" rx="24" fill="#556B2F"/>
+            <rect x="160" y="156" width="176" height="48" rx="24" fill="#6B8E23"/>
+            <rect x="112" y="216" width="144" height="40" rx="20" fill="#556B2F"/>
+            <rect x="160" y="268" width="216" height="48" rx="24" fill="#228B22"/>
+            <rect x="112" y="328" width="200" height="48" rx="24" fill="#556B2F"/>
+          </svg>
+        </div>
+        <span class="icon-label">iOS App Store (1024×1024)</span>
+      </div>
+      <div class="icon-item">
+        <div class="icon-preview" style="width: 120px; height: 120px; background: #1a1a1a;">
+          <svg viewBox="0 0 512 512">
+            <rect x="112" y="96" width="184" height="48" rx="24" fill="#556B2F"/>
+            <rect x="160" y="156" width="176" height="48" rx="24" fill="#6B8E23"/>
+            <rect x="112" y="216" width="144" height="40" rx="20" fill="#556B2F"/>
+            <rect x="160" y="268" width="216" height="48" rx="24" fill="#228B22"/>
+            <rect x="112" y="328" width="200" height="48" rx="24" fill="#556B2F"/>
+          </svg>
+        </div>
+        <span class="icon-label">Android (512×512)</span>
+      </div>
+      <div class="icon-item">
+        <div class="icon-preview" style="width: 80px; height: 80px; background: #1a1a1a;">
+          <svg viewBox="0 0 512 512">
+            <rect x="112" y="96" width="184" height="48" rx="24" fill="#556B2F"/>
+            <rect x="160" y="156" width="176" height="48" rx="24" fill="#6B8E23"/>
+            <rect x="112" y="216" width="144" height="40" rx="20" fill="#556B2F"/>
+            <rect x="160" y="268" width="216" height="48" rx="24" fill="#228B22"/>
+            <rect x="112" y="328" width="200" height="48" rx="24" fill="#556B2F"/>
+          </svg>
+        </div>
+        <span class="icon-label">macOS (256×256)</span>
+      </div>
+      <div class="icon-item">
+        <div class="icon-preview" style="width: 60px; height: 60px; background: #1a1a1a;">
+          <svg viewBox="0 0 512 512">
+            <rect x="112" y="96" width="184" height="48" rx="24" fill="#556B2F"/>
+            <rect x="160" y="156" width="176" height="48" rx="24" fill="#6B8E23"/>
+            <rect x="112" y="216" width="144" height="40" rx="20" fill="#556B2F"/>
+            <rect x="160" y="268" width="216" height="48" rx="24" fill="#228B22"/>
+            <rect x="112" y="328" width="200" height="48" rx="24" fill="#556B2F"/>
+          </svg>
+        </div>
+        <span class="icon-label">Touch Icon (180×180)</span>
+      </div>
+    </div>
+    
+    <h3 style="font-size: 1rem; margin-bottom: 16px; margin-top: 32px;">Favicons</h3>
+    <div class="favicon-row">
+      <div class="favicon-item">
+        <svg style="width: 64px; height: 64px;" viewBox="0 0 512 512">
+          <rect x="112" y="96" width="184" height="48" rx="24" fill="#556B2F"/>
+          <rect x="160" y="156" width="176" height="48" rx="24" fill="#6B8E23"/>
+          <rect x="112" y="216" width="144" height="40" rx="20" fill="#556B2F"/>
+          <rect x="160" y="268" width="216" height="48" rx="24" fill="#228B22"/>
+          <rect x="112" y="328" width="200" height="48" rx="24" fill="#556B2F"/>
+        </svg>
+        <span>64×64</span>
+      </div>
+      <div class="favicon-item">
+        <svg style="width: 48px; height: 48px;" viewBox="0 0 512 512">
+          <rect x="112" y="96" width="184" height="48" rx="24" fill="#556B2F"/>
+          <rect x="160" y="156" width="176" height="48" rx="24" fill="#6B8E23"/>
+          <rect x="112" y="216" width="144" height="40" rx="20" fill="#556B2F"/>
+          <rect x="160" y="268" width="216" height="48" rx="24" fill="#228B22"/>
+          <rect x="112" y="328" width="200" height="48" rx="24" fill="#556B2F"/>
+        </svg>
+        <span>48×48</span>
+      </div>
+      <div class="favicon-item">
+        <svg style="width: 32px; height: 32px;" viewBox="0 0 512 512">
+          <rect x="112" y="96" width="184" height="48" rx="24" fill="#556B2F"/>
+          <rect x="160" y="156" width="176" height="48" rx="24" fill="#6B8E23"/>
+          <rect x="112" y="216" width="144" height="40" rx="20" fill="#556B2F"/>
+          <rect x="160" y="268" width="216" height="48" rx="24" fill="#228B22"/>
+          <rect x="112" y="328" width="200" height="48" rx="24" fill="#556B2F"/>
+        </svg>
+        <span>32×32</span>
+      </div>
+      <div class="favicon-item">
+        <svg style="width: 24px; height: 24px;" viewBox="0 0 512 512">
+          <rect x="112" y="96" width="184" height="48" rx="24" fill="#556B2F"/>
+          <rect x="160" y="156" width="176" height="48" rx="24" fill="#6B8E23"/>
+          <rect x="112" y="216" width="144" height="40" rx="20" fill="#556B2F"/>
+          <rect x="160" y="268" width="216" height="48" rx="24" fill="#228B22"/>
+          <rect x="112" y="328" width="200" height="48" rx="24" fill="#556B2F"/>
+        </svg>
+        <span>24×24</span>
+      </div>
+      <div class="favicon-item">
+        <svg style="width: 16px; height: 16px;" viewBox="0 0 512 512">
+          <rect x="112" y="96" width="184" height="48" rx="24" fill="#556B2F"/>
+          <rect x="160" y="156" width="176" height="48" rx="24" fill="#6B8E23"/>
+          <rect x="112" y="216" width="144" height="40" rx="20" fill="#556B2F"/>
+          <rect x="160" y="268" width="216" height="48" rx="24" fill="#228B22"/>
+          <rect x="112" y="328" width="200" height="48" rx="24" fill="#556B2F"/>
+        </svg>
+        <span>16×16</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPOGRAPHY -->
+  <section class="section section-dark">
+    <p class="section-title">04 — Typography</p>
+    <h2 class="section-heading">Brand Typefaces</h2>
+    
+    <div class="type-specimen">
+      <p class="type-name">Primary — Inter</p>
+      <p class="type-sample">Bitcraft Apps</p>
+      <p class="type-details">Used for headings, body text, and UI elements. Clean, modern, highly legible.</p>
+    </div>
+    
+    <div class="type-specimen">
+      <p class="type-name">Monospace — JetBrains Mono</p>
+      <p class="type-sample mono">const bitcraft = true;</p>
+      <p class="type-details">Used for code samples, technical content, and accent text. Reinforces the developer identity.</p>
+    </div>
+  </section>
+
+  <!-- BUSINESS CARD -->
+  <section class="section">
+    <p class="section-title">05 — Stationery</p>
+    <h2 class="section-heading">Business Card</h2>
+    
+    <div class="card-mockup">
+      <div class="business-card front">
+        <svg viewBox="0 0 512 512">
+          <rect x="112" y="96" width="184" height="48" rx="24" fill="#556B2F"/>
+          <rect x="160" y="156" width="176" height="48" rx="24" fill="#6B8E23"/>
+          <rect x="112" y="216" width="144" height="40" rx="20" fill="#556B2F"/>
+          <rect x="160" y="268" width="216" height="48" rx="24" fill="#228B22"/>
+          <rect x="112" y="328" width="200" height="48" rx="24" fill="#556B2F"/>
+        </svg>
+        <span class="company-name">Bitcraft</span>
+      </div>
+      <div class="business-card back">
+        <div>
+          <p class="name">Szymon Kowalski</p>
+          <p class="title">Founder & Lead Developer</p>
+        </div>
+        <div class="contact">
+          <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="483b3231252726082a213c2b3a292e3c662c2d3e">[email&#160;protected]</a><br>
+          +48 123 456 789<br>
+          bitcraft.dev
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMAIL SIGNATURE -->
+  <section class="section section-dark">
+    <p class="section-title">06 — Digital</p>
+    <h2 class="section-heading">Email Signature</h2>
+    
+    <div class="email-mockup">
+      <div class="email-header">
+        <p class="to">To: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5536393c303b2115363a3825343b2c7b363a38">[email&#160;protected]</a></p>
+        <p class="subject">Re: Project Proposal — Mobile App Development</p>
+      </div>
+      <div class="email-body">
+        <p>Hi Jan,</p>
+        <p style="margin-top: 12px;">Thank you for reaching out. I've reviewed your requirements and would be happy to discuss the project in more detail. I'll prepare a detailed proposal by end of week.</p>
+        <p style="margin-top: 12px;">Best regards,</p>
+      </div>
+      <div class="email-signature">
+        <svg viewBox="0 0 512 512">
+          <rect x="112" y="96" width="184" height="48" rx="24" fill="#556B2F"/>
+          <rect x="160" y="156" width="176" height="48" rx="24" fill="#6B8E23"/>
+          <rect x="112" y="216" width="144" height="40" rx="20" fill="#556B2F"/>
+          <rect x="160" y="268" width="216" height="48" rx="24" fill="#228B22"/>
+          <rect x="112" y="328" width="200" height="48" rx="24" fill="#556B2F"/>
+        </svg>
+        <div class="sig-info">
+          <p class="sig-name">Szymon Kowalski</p>
+          <p class="sig-title">Founder & Lead Developer</p>
+          <p class="sig-contact">
+            <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3f4c45465250517f5d564b5c4d5e594b115b5a49">[email&#160;protected]</a> • +48 123 456 789<br>
+            bitcraft.dev
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVOICE -->
+  <section class="section">
+    <p class="section-title">07 — Documents</p>
+    <h2 class="section-heading">Invoice</h2>
+    
+    <div class="invoice-mockup">
+      <div class="invoice-header">
+        <div class="invoice-logo">
+          <svg viewBox="0 0 512 512">
+            <rect x="112" y="96" width="184" height="48" rx="24" fill="#556B2F"/>
+            <rect x="160" y="156" width="176" height="48" rx="24" fill="#6B8E23"/>
+            <rect x="112" y="216" width="144" height="40" rx="20" fill="#556B2F"/>
+            <rect x="160" y="268" width="216" height="48" rx="24" fill="#228B22"/>
+            <rect x="112" y="328" width="200" height="48" rx="24" fill="#556B2F"/>
+          </svg>
+          <span class="company">Bitcraft</span>
+        </div>
+        <div class="invoice-title">
+          <h2>Invoice</h2>
+          <p class="invoice-num">#2026-001</p>
+        </div>
+      </div>
+      
+      <div class="invoice-meta">
+        <div>
+          <h4>From</h4>
+          <p>
+            Bitcraft Apps Sp. z o.o.<br>
+            ul. Przykładowa 123<br>
+            50-000 Wrocław, Poland<br>
+            NIP: 123-456-78-90
+          </p>
+        </div>
+        <div>
+          <h4>Bill To</h4>
+          <p>
+            Client Company Sp. z o.o.<br>
+            ul. Kliencka 456<br>
+            00-001 Warszawa, Poland
+          </p>
+        </div>
+      </div>
+      
+      <table class="invoice-table">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mobile App Development — Phase 1</td>
+            <td>15,000 PLN</td>
+          </tr>
+          <tr>
+            <td>UI/UX Design Services</td>
+            <td>5,000 PLN</td>
+          </tr>
+          <tr>
+            <td>Project Management</td>
+            <td>2,500 PLN</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="invoice-total">
+        <p class="label">Total Due</p>
+        <p class="amount">22,500 PLN</p>
+      </div>
+      
+      <div class="invoice-footer">
+        Bitcraft Apps • bitcraft.dev • <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="65161f1c080a0b25070c1106170403114b010013">[email&#160;protected]</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LETTERHEAD -->
+  <section class="section section-dark">
+    <p class="section-title">08 — Letterhead</p>
+    <h2 class="section-heading">Official Letter</h2>
+    
+    <div class="letterhead-mockup">
+      <div class="letterhead-header">
+        <div class="letterhead-logo">
+          <svg viewBox="0 0 512 512">
+            <rect x="112" y="96" width="184" height="48" rx="24" fill="#556B2F"/>
+            <rect x="160" y="156" width="176" height="48" rx="24" fill="#6B8E23"/>
+            <rect x="112" y="216" width="144" height="40" rx="20" fill="#556B2F"/>
+            <rect x="160" y="268" width="216" height="48" rx="24" fill="#228B22"/>
+            <rect x="112" y="328" width="200" height="48" rx="24" fill="#556B2F"/>
+          </svg>
+          <span class="company">Bitcraft</span>
+        </div>
+        <div class="letterhead-contact">
+          ul. Przykładowa 123<br>
+          50-000 Wrocław, Poland<br>
+          bitcraft.dev
+        </div>
+      </div>
+      
+      <div class="letterhead-body">
+        <p class="date">January 19, 2026</p>
+        <p class="greeting">Dear Partner,</p>
+        <p class="content">
+          We are pleased to present our proposal for the upcoming project collaboration. 
+          At Bitcraft, we specialize in crafting custom software solutions that combine 
+          technical excellence with thoughtful design.
+        </p>
+        <p>
+          Best regards,<br>
+          <strong>Szymon Kowalski</strong><br>
+          Founder & Lead Developer
+        </p>
+      </div>
+      
+      <div class="letterhead-footer">
+        <span>Bitcraft Apps Sp. z o.o.</span>
+        <span>NIP: 123-456-78-90</span>
+        <span>REGON: 123456789</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL MEDIA -->
+  <section class="section">
+    <p class="section-title">09 — Social Media</p>
+    <h2 class="section-heading">Profile Applications</h2>
+    
+    <div class="social-grid">
+      <div class="social-card">
+        <div class="social-header"></div>
+        <div class="social-avatar">
+          <svg viewBox="0 0 512 512">
+            <rect x="112" y="96" width="184" height="48" rx="24" fill="#556B2F"/>
+            <rect x="160" y="156" width="176" height="48" rx="24" fill="#6B8E23"/>
+            <rect x="112" y="216" width="144" height="40" rx="20" fill="#556B2F"/>
+            <rect x="160" y="268" width="216" height="48" rx="24" fill="#228B22"/>
+            <rect x="112" y="328" width="200" height="48" rx="24" fill="#556B2F"/>
+          </svg>
+        </div>
+        <div class="social-content">
+          <p class="social-name">Bitcraft</p>
+          <p class="social-handle">@bitcraft_dev</p>
+        </div>
+        <div class="social-label">Twitter / X</div>
+      </div>
+      
+      <div class="social-card">
+        <div class="social-header"></div>
+        <div class="social-avatar">
+          <svg viewBox="0 0 512 512">
+            <rect x="112" y="96" width="184" height="48" rx="24" fill="#556B2F"/>
+            <rect x="160" y="156" width="176" height="48" rx="24" fill="#6B8E23"/>
+            <rect x="112" y="216" width="144" height="40" rx="20" fill="#556B2F"/>
+            <rect x="160" y="268" width="216" height="48" rx="24" fill="#228B22"/>
+            <rect x="112" y="328" width="200" height="48" rx="24" fill="#556B2F"/>
+          </svg>
+        </div>
+        <div class="social-content">
+          <p class="social-name">Bitcraft</p>
+          <p class="social-handle">bitcraft-apps</p>
+        </div>
+        <div class="social-label">LinkedIn</div>
+      </div>
+      
+      <div class="social-card">
+        <div class="social-header"></div>
+        <div class="social-avatar">
+          <svg viewBox="0 0 512 512">
+            <rect x="112" y="96" width="184" height="48" rx="24" fill="#556B2F"/>
+            <rect x="160" y="156" width="176" height="48" rx="24" fill="#6B8E23"/>
+            <rect x="112" y="216" width="144" height="40" rx="20" fill="#556B2F"/>
+            <rect x="160" y="268" width="216" height="48" rx="24" fill="#228B22"/>
+            <rect x="112" y="328" width="200" height="48" rx="24" fill="#556B2F"/>
+          </svg>
+        </div>
+        <div class="social-content">
+          <p class="social-name">Bitcraft</p>
+          <p class="social-handle">bitcraft-apps</p>
+        </div>
+        <div class="social-label">GitHub</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEBSITE -->
+  <section class="section section-dark">
+    <p class="section-title">10 — Web</p>
+    <h2 class="section-heading">Website Header</h2>
+    
+    <div class="website-mockup">
+      <div class="browser-bar">
+        <div class="browser-dot red"></div>
+        <div class="browser-dot yellow"></div>
+        <div class="browser-dot green"></div>
+        <div class="browser-url">https://bitcraft.dev</div>
+      </div>
+      <div class="website-header dark">
+        <div class="website-logo">
+          <svg viewBox="0 0 512 512">
+            <rect x="112" y="96" width="184" height="48" rx="24" fill="#556B2F"/>
+            <rect x="160" y="156" width="176" height="48" rx="24" fill="#6B8E23"/>
+            <rect x="112" y="216" width="144" height="40" rx="20" fill="#556B2F"/>
+            <rect x="160" y="268" width="216" height="48" rx="24" fill="#228B22"/>
+            <rect x="112" y="328" width="200" height="48" rx="24" fill="#556B2F"/>
+          </svg>
+          <span>Bitcraft</span>
+        </div>
+        <nav class="website-nav">
+          <a href="#">Services</a>
+          <a href="#">Work</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </nav>
+      </div>
+      <div class="website-content"></div>
+    </div>
+    
+    <div class="website-mockup" style="margin-top: 24px;">
+      <div class="browser-bar">
+        <div class="browser-dot red"></div>
+        <div class="browser-dot yellow"></div>
+        <div class="browser-dot green"></div>
+        <div class="browser-url">https://bitcraft.dev</div>
+      </div>
+      <div class="website-header">
+        <div class="website-logo">
+          <svg viewBox="0 0 512 512">
+            <rect x="112" y="96" width="184" height="48" rx="24" fill="#556B2F"/>
+            <rect x="160" y="156" width="176" height="48" rx="24" fill="#6B8E23"/>
+            <rect x="112" y="216" width="144" height="40" rx="20" fill="#556B2F"/>
+            <rect x="160" y="268" width="216" height="48" rx="24" fill="#228B22"/>
+            <rect x="112" y="328" width="200" height="48" rx="24" fill="#556B2F"/>
+          </svg>
+          <span>Bitcraft</span>
+        </div>
+        <nav class="website-nav">
+          <a href="#">Services</a>
+          <a href="#">Work</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </nav>
+      </div>
+      <div class="website-content"></div>
+    </div>
+  </section>
+
+  <!-- GUIDELINES -->
+  <section class="section">
+    <p class="section-title">11 — Guidelines</p>
+    <h2 class="section-heading">Usage Rules</h2>
+    
+    <div class="guidelines-grid">
+      <div class="guideline-card">
+        <h4><span class="do">✓</span> Clear Space</h4>
+        <p>Always maintain clear space around the logo equal to the height of the smallest bar element.</p>
+      </div>
+      <div class="guideline-card">
+        <h4><span class="do">✓</span> Minimum Size</h4>
+        <p>Do not use the logo smaller than 24px in height for digital, or 10mm for print applications.</p>
+      </div>
+      <div class="guideline-card">
+        <h4><span class="dont">✗</span> Don't Stretch</h4>
+        <p>Never distort the logo proportions. Always scale uniformly.</p>
+      </div>
+      <div class="guideline-card">
+        <h4><span class="dont">✗</span> Don't Recolor</h4>
+        <p>Use only approved color combinations. Don't apply gradients or effects to the logo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="brand-footer">
+    <svg viewBox="0 0 512 512">
+      <rect x="112" y="96" width="184" height="48" rx="24" fill="#556B2F"/>
+      <rect x="160" y="156" width="176" height="48" rx="24" fill="#6B8E23"/>
+      <rect x="112" y="216" width="144" height="40" rx="20" fill="#556B2F"/>
+      <rect x="160" y="268" width="216" height="48" rx="24" fill="#228B22"/>
+      <rect x="112" y="328" width="200" height="48" rx="24" fill="#556B2F"/>
+    </svg>
+    <h3>Bitcraft</h3>
+    <p>Brand Book — Compact Variant • 2026</p>
+  </footer>
+
+</body>
+</html>
