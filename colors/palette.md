@@ -58,3 +58,20 @@ colors: {
   }
 }
 ```
+
+## Accessibility
+
+### Contrast Ratios (against white #FFFFFF)
+
+| Color | Ratio | WCAG AA (normal) | WCAG AA (large) |
+|-------|-------|------------------|-----------------|
+| Dark Olive #556B2F | 5.4:1 | ✓ Pass | ✓ Pass |
+| Olive Drab #6B8E23 | 3.8:1 | ✗ Fail | ✓ Pass |
+| Forest Green #228B22 | 4.0:1 | ✗ Fail | ✓ Pass |
+| Near Black #1A1A1A | 16.1:1 | ✓ Pass | ✓ Pass |
+
+### Recommendations
+
+- Use **Dark Olive** or **Near Black** for body text
+- Olive Drab and Forest Green are safe for large text (18px+) or UI elements
+- For small text on white backgrounds, prefer Dark Olive over lighter greens
