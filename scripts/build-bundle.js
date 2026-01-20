@@ -106,11 +106,25 @@ async function exportOgImages() {
 }
 
 function extractHexColor(markdown, name, hex) {
-  if (!markdown.includes(hex)) {
-    throw new Error(`Expected color ${name} ${hex} not found in palette.md`);
+  const headingRegex = new RegExp(`^###\\s+${name}\\s*$`, 'mi');
+  if (!headingRegex.test(markdown) || !markdown.includes(hex)) {
+    throw new Error(
+      `Expected color ${name} ${hex} not found in colors/palette.md (missing section and/or HEX)`
+    );
   }
 
   return hex;
+}
+
+function getRequiredScale(scale, requiredKeys, sourceLabel) {
+  const missing = requiredKeys.filter((key) => !scale[key]);
+  if (missing.length > 0) {
+    throw new Error(
+      `Typography scale missing keys: ${missing.join(', ')} (expected from ${sourceLabel})`
+    );
+  }
+
+  return scale;
 }
 
 function parseTypographyScale(markdown) {
@@ -148,14 +162,18 @@ function parseTypographyScale(markdown) {
 }
 
 function parseFonts(markdown) {
-  const match = markdown.match(/--font-sans:\s*([^;]+);[\s\S]*?--font-mono:\s*([^;]+);/);
-  if (!match) {
-    throw new Error('Could not find --font-sans/--font-mono in typography/fonts.md');
+  function readVar(varName) {
+    const match = markdown.match(new RegExp(`--${varName}:\\s*([^;\n}]+)`, 'm'));
+    if (!match) {
+      throw new Error(`Could not find --${varName} in typography/fonts.md`);
+    }
+
+    return match[1].trim().replace(/;$/, '').trim();
   }
 
   return {
-    sans: match[1].trim(),
-    mono: match[2].trim(),
+    sans: readVar('font-sans'),
+    mono: readVar('font-mono'),
   };
 }
 
@@ -178,7 +196,11 @@ async function exportTokens() {
   };
 
   const fontStacks = parseFonts(fontsMd);
-  const scale = parseTypographyScale(fontsMd);
+  const scale = getRequiredScale(
+    parseTypographyScale(fontsMd),
+    ['h1', 'h2', 'h3', 'body', 'small'],
+    'typography/fonts.md # Scale'
+  );
 
   const tokensCss = `:root {
   /* Brand primitives */

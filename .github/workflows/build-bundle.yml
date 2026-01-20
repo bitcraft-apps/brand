@@ -1,20 +1,12 @@
-name: Build brand bundle
+name: Bundle sanity check
 
 on:
-  push:
-    paths:
-      - "logo/**"
-      - "colors/**"
-      - "typography/**"
-      - "scripts/**"
-      - "package.json"
-      - "package-lock.json"
   pull_request:
     paths:
       - "logo/**"
       - "colors/**"
       - "typography/**"
-      - "scripts/**"
+      - "scripts/build-bundle.js"
       - "package.json"
       - "package-lock.json"
 
@@ -35,10 +27,3 @@ jobs:
 
       - name: Build bundle
         run: npm run build
-
-      - name: Upload bundle artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: brand-bundle
-          path: bundle/
-          if-no-files-found: error
