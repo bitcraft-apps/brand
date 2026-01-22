@@ -16,7 +16,7 @@ jobs:
       - uses: googleapis/release-please-action@v4
         id: release
         with:
-          token: ${{ secrets.RELEASE_TOKEN }}
+          token: ${{ secrets.BRAND_REPO_PR_WRITE_TOKEN }}
           # Using "simple" strategy since this is not a library with a specific package manager release need,
           # but we can use "node" if we want to sync package.json version.
           # Given we added version to package.json, "node" is a good fit.
