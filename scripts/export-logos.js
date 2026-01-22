@@ -61,8 +61,8 @@ async function exportLogos() {
     const svgPath = path.join(logoDir, svgFile);
 
     if (!fs.existsSync(svgPath)) {
-      console.warn(`  Skipping ${svgFile} - file not found`);
-      continue;
+      console.error(`  Error: Skipping ${svgFile} - file not found`);
+      process.exit(1);
     }
 
     const baseName = svgFile.replace('.svg', '');
@@ -125,7 +125,7 @@ async function exportOgImages() {
 
   if (!fs.existsSync(ogSvg)) {
     console.error(`  Source OG SVG not found: ${ogSvg}`);
-    return;
+    process.exit(1);
   }
 
   const pngName = 'bitcraft-og.png';
