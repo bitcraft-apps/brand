@@ -95,7 +95,7 @@ async function exportOgImages() {
 
   await fsp.mkdir(brandDir, { recursive: true });
 
-  const outPath = path.join(brandDir, 'og-default.png');
+  const outPath = path.join(brandDir, 'bitcraft-og.png');
   await sharp(ogSourceSvg).png().toFile(outPath);
   console.log(`  Created: ${path.relative(rootDir, outPath)}`);
 }

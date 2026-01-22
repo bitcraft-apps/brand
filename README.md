@@ -25,7 +25,7 @@ Pre-rendered PNG exports: [`logo/exports/png/`](logo/exports/png/) (512, 256, 12
 
 Favicon files: [`logo/exports/favicon/`](logo/exports/favicon/) (ico, 32px, 16px)
 
-Open Graph image: [`logo/exports/og-images/og-default.png`](logo/exports/og-images/og-default.png) (1200×630px for social sharing)
+Open Graph image: [`logo/exports/og-images/bitcraft-og.png`](logo/exports/og-images/bitcraft-og.png) (1200×630px for social sharing)
 
 ## Colors
 
@@ -81,7 +81,7 @@ Outputs:
   - `site.webmanifest`
 - Namespaced (to avoid root clutter):
   - `brand/tokens.css`
-  - `brand/og/og-default.png`
+  - `brand/og/bitcraft-og.png`
 
 ### CI
 
