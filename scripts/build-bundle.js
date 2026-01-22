@@ -75,18 +75,40 @@ async function exportFavicons(themeColor) {
     if (output.size === 16 || output.size === 32 || output.size === 48) {
       icoInputs.push(outputPath);
     }
-
-    console.log(`  Created: ${path.relative(rootDir, outputPath)}`);
   }
 
+  // 1. Generate ICO from small PNGs
   const icoBuffer = await pngToIco(icoInputs);
   const icoPath = path.join(bundleDir, 'favicon.ico');
   await fsp.writeFile(icoPath, icoBuffer);
   console.log(`  Created: ${path.relative(rootDir, icoPath)}`);
 
+  // 2. Generate site.webmanifest
   const manifestPath = path.join(bundleDir, 'site.webmanifest');
   await writeJson(manifestPath, manifest);
   console.log(`  Created: ${path.relative(rootDir, manifestPath)}`);
+
+  // 3. Move other PNGs to brand/ subdirectory?
+  // The user requested:
+  // "standard files like favicons, android and apple images, site manifest etc. are placed in final zip in main directory"
+  // "all other files, like og images, css files, logos land in /brand/ directory"
+
+  // Currently:
+  // bundle/
+  //   favicon-16x16.png
+  //   favicon-32x32.png
+  //   favicon-48x48.png
+  //   apple-touch-icon.png
+  //   android-chrome-192x192.png
+  //   android-chrome-512x512.png
+  //   favicon.ico
+  //   site.webmanifest
+  //   brand/
+  //     bitcraft-og.png
+  //     tokens.css
+
+  // This matches the request. The standard web files are in the root of the bundle,
+  // and specific brand assets are in the brand/ subdirectory.
 }
 
 async function exportOgImages() {
