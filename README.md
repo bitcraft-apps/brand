@@ -81,7 +81,10 @@ Outputs:
   - `site.webmanifest`
 - Namespaced (to avoid root clutter):
   - `brand/tokens.css`
-  - `brand/og/bitcraft-og.png`
+  - `brand/bitcraft-og.png`
+  - `brand/bitcraft-logo.svg`
+  - `brand/bitcraft-logo-mono-white.svg`
+  - `brand/bitcraft-logo-mono-black.svg`
 
 ### CI
 
