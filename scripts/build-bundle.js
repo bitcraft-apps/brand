@@ -292,6 +292,26 @@ async function exportTokens() {
   console.log(`  Created: ${path.relative(rootDir, tokensOutPath)}`);
 }
 
+async function copyLogos() {
+  console.log('Copying logo SVGs...');
+  const logoOutDir = path.join(brandDir, 'logo');
+  await fsp.mkdir(logoOutDir, { recursive: true });
+
+  const logos = [
+    'bitcraft-logo.svg',
+    'bitcraft-logo-mono-white.svg',
+    'bitcraft-logo-mono-black.svg',
+  ];
+
+  for (const logo of logos) {
+    const src = path.join(logoDir, logo);
+    const dest = path.join(logoOutDir, logo);
+    assertFileExists(src);
+    await fsp.copyFile(src, dest);
+    console.log(`  Copied: ${path.relative(rootDir, dest)}`);
+  }
+}
+
 // Moved main to bottom to allow for extracting color
 async function getThemeColor() {
   const palettePath = path.join(rootDir, 'colors', 'palette.md');
@@ -306,6 +326,7 @@ async function main() {
   await exportFavicons(themeColor);
   await exportOgImages();
   await exportTokens();
+  await copyLogos();
 
   console.log('\nBundle build complete.');
 }
