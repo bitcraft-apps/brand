@@ -294,9 +294,9 @@ async function exportTokens() {
 
 async function copyLogos() {
   console.log('Copying logo SVGs...');
-  const logoOutDir = path.join(brandDir, 'logo');
-  await fsp.mkdir(logoOutDir, { recursive: true });
 
+  // Core logo variants for website use (full-color + mono variants for light/dark backgrounds).
+  // Additional variants in logo/ (padded, single-color, lockups) are for other contexts.
   const logos = [
     'bitcraft-logo.svg',
     'bitcraft-logo-mono-white.svg',
@@ -305,7 +305,7 @@ async function copyLogos() {
 
   for (const logo of logos) {
     const src = path.join(logoDir, logo);
-    const dest = path.join(logoOutDir, logo);
+    const dest = path.join(brandDir, logo);
     assertFileExists(src);
     await fsp.copyFile(src, dest);
     console.log(`  Copied: ${path.relative(rootDir, dest)}`);
