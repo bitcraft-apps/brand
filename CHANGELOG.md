@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/bitcraft-apps/bitcraft-brand/compare/v0.2.0...v0.3.0) (2026-01-25)
+
+
+### Features
+
+* include logo SVGs in website bundle ([#33](https://github.com/bitcraft-apps/bitcraft-brand/issues/33)) ([d762b42](https://github.com/bitcraft-apps/bitcraft-brand/commit/d762b42b0b66d5207b82041d302cc88b9a31b20f))
+
 ## 0.2.0 (2026-01-22)
 
 
